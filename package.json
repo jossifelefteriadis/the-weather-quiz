@@ -1,0 +1,22 @@
+{
+  "name": "fall19-hackday",
+  "version": "1.0.0",
+  "description": "Jossif fall19 hackday project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "lint": "eslint **/*.js || exit 0"
+  },
+  "author": "Jossif Elefteriadis",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "mocha": "^6.2.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^1.19.4"
+  }
+}
