@@ -6,7 +6,6 @@ let shuffledAnswers;
 
 function generateCity() {
     shuffledCity = cities[Math.floor(Math.random() * cities.length)];
-    console.log('the random city is', shuffledCity);
     getCityWeather(shuffledCity);
 };
 
@@ -19,7 +18,19 @@ const getCityWeather = function (shuffledCity) {
 
 function generateQuestion(data) {
     question.innerText = `In which European city, is the weather ${data.temperature} degrees, at this very second?`;
-    console.log(data);
+    generateCities(data.city);
+}
+
+function generateCities(correctCity) {
+    const answers = [];
+    answers.push(correctCity);
+    while (answers.length !== 4) {
+        const city = cities[Math.floor(Math.random() * cities.length)];
+        if (!answers.includes(city)) {
+            answers.push(city);
+        }
+    }
+    console.log(answers);
 }
 
 randomCity.addEventListener('click', generateCity)
