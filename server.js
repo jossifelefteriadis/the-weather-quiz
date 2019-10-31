@@ -5,7 +5,6 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 const url = 'http://api.openweathermap.org/data/2.5/weather?q=';
-// const apiId = '&appid=d1380c4e0e849dce680e2ff7c9197e12&units=metric';
 const apiId = process.env.EXPRESS_API_ID;
 
 app.use(express.static('public'));
