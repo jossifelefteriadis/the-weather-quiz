@@ -5,76 +5,88 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-:root {
-    --hue-neutral: 200;
-    --hue-wrong: 0;
-    --hue-correct: 145;
-}
-
 body {
     display: flex;
-    width: 100wh;
+    width: 100vw;
     height: 100vh;
     justify-content: center;
-    align-items: center;
-    background-color: #2874bb;
+    align-items: top;
+    background-color: #10546d;
+    /* background: linear-gradient(to bottom, #104743, #10546d); */
 }
 
+img {
+    width: 20%;
+    height: 20%;
+    /* opacity: 0.7; */
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    margin-top: 0.5rem;
+}
 .container {
-    width: 800px;
-    max-width: 80%;
+    text-align: center;
+    margin-top: 13%;
+    width: 500px;
+    max-width: 60%;
     background-color: #ffffff;
     border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 10px 2px;
+    padding-top: 0.8rem;
+    box-shadow: 0 0 30px 1px #4a7e91;
+}
+
+.container__question {
+    text-align: left;
+    width: 50%;
+    height: 3rem;
+    margin-top: 4%;
+    margin-left: 27%;
+    margin-bottom: 7%;
+    line-height: 130%;
 }
 
 .btn-grid {
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(2, auto);
     gap: 10px;
     margin: 20px 0;
 }
 
+.container__btn__generate {
+    font-size: 1rem;
+    border-radius: 2px;
+    padding: 9px 11px;
+    color: #000000;
+    width: 8rem;
+    border: solid 1.3px #4a8bc0;
+    outline: none;
+    cursor: pointer;
+}
+
 .btn {
-    background-color: #4a8bc0;
     border-radius: 5px;
     padding: 5px 10px;
-    color: #ffffff;
+    color: #000000;
     outline: none;
+    width: 8rem;
 }
 
 .btn:hover {
     border-color: #000000;
-}
-
-/* .btn.correct {
-    --hue: var(--hue-correct);
-    color: #000000;
-}
-
-.btn.wrong {
-    --hue: var(--hue-wrong);
-} */
-
-.start_btn, .next_btn {
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 10px 20px;
+    background-color: #4a8bc0;
 }
 
 .selectedRight {
-    background-color: green;
+    background-color: #3c8b47;
 }
 
 .selectedWrong {
-    background-color: red;
-}
-
-.controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #c94444;
 }
 
 .hide {
