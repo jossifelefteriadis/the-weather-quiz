@@ -28,6 +28,7 @@ img {
     top: 0;
     margin-top: 0.5rem;
 }
+
 .container {
     text-align: center;
     margin-top: 13%;
@@ -39,13 +40,38 @@ img {
     box-shadow: 0 0 30px 1px #4a7e91;
 }
 
+.bulb {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-right: 1.2rem;
+    padding-bottom: 0.8rem;
+    width: 48px;
+    height: 52px;
+    outline: none;
+}
+
+.show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.tips {
+    border-radius: 50%;
+    width: 55%;
+    height: 75%;
+    margin-top: -400px;
+    margin-right: -540px;
+}
+
 .container__question {
     text-align: left;
-    width: 50%;
+    width: 70%;
     height: 3rem;
     margin-top: 4%;
-    margin-left: 27%;
-    margin-bottom: 7%;
+    margin-left: 16%;
+    margin-bottom: 12%;
     line-height: 130%;
 }
 

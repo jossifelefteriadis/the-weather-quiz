@@ -4,6 +4,11 @@ const cities = [
     'Istanbul', 'Hamburg', 'Porto', 'Helsinki', 'Oslo', 'Zagreb', 'Riga', 'Lyon', 'Nice', 'Belgrade'
 ]
 
+const helpImg = document.querySelector('.tips');
+const bulb = document.querySelector('.bulb');
+bulb.src = './lightbulb.png';
+bulb.classList.add('hide');
+bulb.classList.add('myPopup');
 const randomCity = document.querySelector('.container__btn__generate');
 const question = document.querySelector('.container__question');
 const fourAnswers = document.querySelector('.answer_buttons');
@@ -13,21 +18,23 @@ let shuffledAnswers;
 function generateCity() {
     randomCity.innerText = 'NEXT';
     shuffledCity = cities[Math.floor(Math.random() * cities.length)];
+    bulb.classList.remove('hide');
+    helpImg.classList.add('hide');
     getCityWeather(shuffledCity);
 };
 
 const getCityWeather = function (shuffledCity) {
     event.preventDefault();
     fetch(`http://127.0.0.1:3000/${shuffledCity}`)
-        .then(response => response.json())
-        .then(data => generateQuestion(data));
+    .then(response => response.json())
+    .then(data => generateQuestion(data));
 }
 
 function generateQuestion(data) {
     while (fourAnswers.firstChild) {
         fourAnswers.removeChild(fourAnswers.firstChild);
     }
-    question.innerText = `In which European city, is the weather ${data.temperature} degrees, at this very second?`;
+    question.innerText = `In which European city, is the weather ${data.temperature} degrees celsius, at this very second?`;
     generateCities(data.city);
 }
 
@@ -40,6 +47,7 @@ function generateCities(correctCity) {
             answers.push(city);
         }
     }
+    helpImg.src = citiesImgSrc[correctCity];
     shuffleAnswers(answers, correctCity);
 }
 
@@ -74,5 +82,11 @@ function showAnswers(answers, correctCity) {
         rightA.classList.add('selectedRight');
     })
 }
+
+bulb.addEventListener('click', () => {
+  let popup = document.querySelector(".myPopup");
+  popup.classList.toggle("show");
+  helpImg.classList.toggle('hide');
+})
 
 randomCity.addEventListener('click', generateCity);
