@@ -26,8 +26,8 @@ function generateCity() {
 const getCityWeather = function (shuffledCity) {
     event.preventDefault();
     fetch(`http://127.0.0.1:3000/${shuffledCity}`)
-    .then(response => response.json())
-    .then(data => generateQuestion(data));
+        .then(response => response.json())
+        .then(data => generateQuestion(data));
 }
 
 function generateQuestion(data) {
@@ -52,7 +52,6 @@ function generateCities(correctCity) {
 }
 
 function shuffleAnswers(answers, correctCity) {
-
     for (let i = answers.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [answers[i], answers[j]] = [answers[j], answers[i]];
@@ -75,7 +74,7 @@ function showAnswers(answers, correctCity) {
         const selected = event.target;
         if (selected.classList.contains('right')) {
             selected.classList.add('selectedRight')
-        } if (!selected.classList.contains('right'))  {
+        } if (!selected.classList.contains('right')) {
             selected.classList.add('selectedWrong');
         }
         const rightA = document.querySelector('.right');
@@ -84,9 +83,9 @@ function showAnswers(answers, correctCity) {
 }
 
 bulb.addEventListener('click', () => {
-  let popup = document.querySelector(".myPopup");
-  popup.classList.toggle("show");
-  helpImg.classList.toggle('hide');
+    let popup = document.querySelector(".myPopup");
+    popup.classList.toggle("show");
+    helpImg.classList.toggle('hide');
 })
 
 randomCity.addEventListener('click', generateCity);

@@ -29,14 +29,10 @@ img {
     margin-top: 0.5rem;
 }
 
-@media all and (max-width: 1024px) {
-    /* some code */
-}
-
 .container {
     text-align: center;
     margin-top: 13%;
-    width: 30%;
+    width: 40%;
     max-width: 60%;
     background-color: #ffffff;
     border-radius: 5px;
@@ -48,8 +44,8 @@ img {
     position: fixed;
     bottom: 0;
     right: 0;
-    margin-right: 5rem;
-    margin-bottom: 3rem;
+    margin-right: 2.5rem;
+    margin-bottom: 2rem;
     width: 3%;
     height: 8%;
     outline: none;
@@ -65,7 +61,7 @@ img {
     border-radius: 50%;
     width: 60%;
     height: 50%;
-    margin-top: 5%;
+    /* margin-top: -2%; */
     /* margin-right: -700px; */
 }
 
@@ -77,6 +73,7 @@ img {
     margin-left: 16%;
     margin-bottom: 4%;
     line-height: 130%;
+    /* font-size: 0.8rem; */
 }
 
 .btn-grid {
@@ -122,3 +119,19 @@ img {
 .hide {
     display: none;
 }
+
+/* @media all and (max-width: 1024px) {
+    .conatiner {
+        text-align: center;
+        width: 600px;
+        max-width: 80%;
+    }
+    
+    .btn {
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: #000000;
+        outline: none;
+        width: 10rem;
+    }
+} */
