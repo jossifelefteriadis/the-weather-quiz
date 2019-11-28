@@ -59,7 +59,7 @@ img {
 
 .tips {
     border-radius: 50%;
-    width: 60%;
+    width: 50%;
     height: 50%;
     /* margin-top: -2%; */
     /* margin-right: -700px; */
@@ -104,8 +104,10 @@ img {
 }
 
 .btn:hover {
-    border-color: #000000;
-    background-color: #4a8bc0;
+    border:solid 1px  #4a8bc0;
+    /* background-color: #4a8bc0; */
+    /* background-color: rgba(74,139,192,0.2); */
+
 }
 
 .selectedRight {
@@ -118,6 +120,10 @@ img {
 
 .hide {
     display: none;
+}
+
+.counter {
+    margin-top: 2%;
 }
 
 /* @media all and (max-width: 1024px) {

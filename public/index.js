@@ -14,8 +14,10 @@ const question = document.querySelector('.container__question');
 const fourAnswers = document.querySelector('.answer_buttons');
 let shuffledCity;
 let shuffledAnswers;
+let counter = document.querySelector('.counter');
+let count = 0;
 
-function generateCity() {
+const generateCity = () => {
     randomCity.innerText = 'NEXT';
     shuffledCity = cities[Math.floor(Math.random() * cities.length)];
     bulb.classList.remove('hide');
@@ -26,11 +28,11 @@ function generateCity() {
 const getCityWeather = function (shuffledCity) {
     event.preventDefault();
     fetch(`http://127.0.0.1:3000/${shuffledCity}`)
-        .then(response => response.json())
-        .then(data => generateQuestion(data));
+    .then(response => response.json())
+    .then(data => generateQuestion(data));
 }
 
-function generateQuestion(data) {
+const generateQuestion = data => {
     while (fourAnswers.firstChild) {
         fourAnswers.removeChild(fourAnswers.firstChild);
     }
@@ -38,7 +40,8 @@ function generateQuestion(data) {
     generateCities(data.city);
 }
 
-function generateCities(correctCity) {
+const generateCities = correctCity => {
+    counter.textContent = `Score: ${count}`;
     const answers = [];
     answers.push(correctCity);
     while (answers.length !== 4) {
@@ -51,7 +54,7 @@ function generateCities(correctCity) {
     shuffleAnswers(answers, correctCity);
 }
 
-function shuffleAnswers(answers, correctCity) {
+const shuffleAnswers = (answers, correctCity) => {
     for (let i = answers.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [answers[i], answers[j]] = [answers[j], answers[i]];
@@ -59,7 +62,7 @@ function shuffleAnswers(answers, correctCity) {
     showAnswers(answers, correctCity);
 }
 
-function showAnswers(answers, correctCity) {
+const showAnswers = (answers, correctCity) => {
     answers.forEach(answer => {
         const button = document.createElement('button');
         button.innerText = answer;
@@ -70,16 +73,21 @@ function showAnswers(answers, correctCity) {
         fourAnswers.appendChild(button);
         fourAnswers.classList.remove('hide');
     })
-    fourAnswers.addEventListener('click', (event) => {
+    fourAnswers.onclick = () => {
+    // fourAnswers.addEventListener('click', (event) => {
         const selected = event.target;
         if (selected.classList.contains('right')) {
             selected.classList.add('selectedRight')
+            count++;
+            counter.textContent = `Score: ${count}`;
+
         } if (!selected.classList.contains('right')) {
             selected.classList.add('selectedWrong');
         }
         const rightA = document.querySelector('.right');
         rightA.classList.add('selectedRight');
-    })
+    }
+    // )
 }
 
 bulb.addEventListener('click', () => {

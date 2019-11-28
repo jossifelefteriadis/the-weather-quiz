@@ -14,6 +14,8 @@ app.get('/:id', (req, res) => {
         fetch(url + req.params.id + apiId)
             .then(response => response.json())
             .then(data => {
+                if (data.nam) {}
+                console.log(data);
                 res.json({city: data.name, temperature: data.main.temp})
             })
 })
