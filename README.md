@@ -4,6 +4,7 @@ Single player quiz built in 10 hours at Salt during hackday.
 Backend server built using Express to fetch weather information from external API, and frontend in plain JavaScript.
 
 Update 2019-11-28
+
 Add score counter for every correct answer.
 
 ## Get Started
